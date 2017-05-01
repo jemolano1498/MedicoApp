@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">MedicoApp</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_home">Home</string>
+    <string name="action_logOut">LogOut</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_medico_view_pacientes">MedicoViewPacientes</string>
+    <string name="title_activity_paciente">PacienteActivity</string>
+    <string name="title_activity_enviar_consejo">EnviarConsejoActivity</string>
+    <string name="title_activity_ver_historial">VerHistorialActivity</string>
+    <string name="title_activity_paceinte_menu">PaceinteMenuActivity</string>
+    <string name="title_activity_ver_consejos">verConsejosActivity</string>
 </resources>

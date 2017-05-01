@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="hospitallosalpes.arquisoft.medicoapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,6 +20,55 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MedicoViewPacientes"
+            android:label="@string/title_activity_medico_view_pacientes"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="hospitallosalpes.arquisoft.medicoapp.MainActivity" />
+        </activity>
+        <activity
+            android:name=".PacienteActivity"
+            android:label="@string/title_activity_paciente"
+            android:parentActivityName=".MedicoViewPacientes"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="hospitallosalpes.arquisoft.medicoapp.MedicoViewPacientes" />
+        </activity>
+        <activity
+            android:name=".EnviarConsejoActivity"
+            android:label="@string/title_activity_enviar_consejo"
+            android:parentActivityName=".PacienteActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="hospitallosalpes.arquisoft.medicoapp.PacienteActivity" />
+        </activity>
+        <activity
+            android:name=".VerHistorialActivity"
+            android:label="@string/title_activity_ver_historial"
+            android:parentActivityName=".PacienteActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="hospitallosalpes.arquisoft.medicoapp.PacienteActivity" />
+        </activity>
+        <activity
+            android:name=".PaceinteMenuActivity"
+            android:label="@string/title_activity_paceinte_menu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".verConsejosActivity"
+            android:label="@string/title_activity_ver_consejos"
+            android:parentActivityName=".PaceinteMenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="hospitallosalpes.arquisoft.medicoapp.PaceinteMenuActivity" />
         </activity>
     </application>
 
