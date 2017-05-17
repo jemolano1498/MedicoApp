@@ -14,6 +14,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.iid.FirebaseInstanceId;
+
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     public TextView textView;
     public static String userId;
     public Spinner tipoLogin;
+    public String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         ipText = (EditText) findViewById(R.id.ipText);
         textView = (TextView) findViewById(R.id.textView4);
 
+        token = FirebaseInstanceId.getInstance().getToken();
         addItemsOnSpinner();
         String.valueOf(tipoLogin.getSelectedItem());
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -82,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
 
         tipoLogin = (Spinner) findViewById(R.id.spinner);
         List<String> list = new ArrayList<String>();
-        list.add("Paciente");
         list.add("Médico");
+        list.add("Paciente");
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -95,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
     {
 
         String url = "http://" + c + ":8081/auth?user=" + a + "&password=" + b;
+        String url2 = "http://" + c + ":8081/auth/key?key=" + token;
         if (d.equals("Paciente")){
             QuotePaciente resp = null;
             try {
@@ -109,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 if (resp.getEstado().equals("exitoso")) {
 
                     pacienteActual = resp.getUsuario();
-                    Intent intent = new Intent(getBaseContext(), PaceinteMenuActivity.class);
+                    Intent intent = new Intent(getBaseContext(), PacienteMenuActivity.class);
                     intent.putExtra("pacienteActual", pacienteActual);
                     intent.putExtra("ip", c);
                     startActivity(intent);
@@ -142,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         else{
             Quote resp = null;
             try {
-                resp = new HttpRequestTask().execute(url).get();
+                resp = new HttpRequestTask().execute(url,url2).get();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {
@@ -224,6 +229,9 @@ public class MainActivity extends AppCompatActivity {
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
                 Quote resp= restTemplate.getForObject(url[0], Quote.class);
+                restTemplate = new RestTemplate();
+                restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+                restTemplate.getForObject(url[1], String.class);
                 return resp;
             } catch (Exception e) {
                 Log.e("MainActivity", e.getMessage(), e);

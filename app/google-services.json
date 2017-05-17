@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "512782674570",
+    "firebase_url": "https://medicoapp-fae7c.firebaseio.com",
+    "project_id": "medicoapp-fae7c",
+    "storage_bucket": "medicoapp-fae7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512782674570:android:89d4782adac0080d",
+        "android_client_info": {
+          "package_name": "hospitallosalpes.arquisoft.medicoapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512782674570-9kbe0jpn8qpnssvfanb48v65s96o5igs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQQUA5F6-gFNmnOFyGHoqfUVdLk-AWU5Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

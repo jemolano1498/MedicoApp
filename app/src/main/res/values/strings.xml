@@ -11,4 +11,6 @@
     <string name="title_activity_ver_historial">VerHistorialActivity</string>
     <string name="title_activity_paceinte_menu">PaceinteMenuActivity</string>
     <string name="title_activity_ver_consejos">verConsejosActivity</string>
+    <string name="title_activity_ver_medicos">VerMedicosActivity</string>
+    <string name="title_activity_ver_mediciones">VerMedicionesActivity</string>
 </resources>

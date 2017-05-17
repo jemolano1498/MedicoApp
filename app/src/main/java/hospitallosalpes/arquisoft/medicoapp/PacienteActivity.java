@@ -71,8 +71,16 @@ public class PacienteActivity extends AppCompatActivity {
         botonConfigurarMarcapasos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Configuraciones Iniciales hechas", Toast.LENGTH_LONG)
-                        .show();
+                if (medicoActual.getTipo().equals("ESPECIALIZADO")){
+                    Toast.makeText(getApplicationContext(), "Configuraciones Iniciales hechas", Toast.LENGTH_LONG)
+                            .show();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "no está autorizado para esta acción", Toast.LENGTH_LONG)
+                            .show();
+                }
+
             }
         });
         botonEnviarConsejo = (Button) findViewById(R.id.buttonRecomendacion);
